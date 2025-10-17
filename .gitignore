@@ -1,0 +1,4 @@
+# TODO: Verify that this in fact does work
+.env
+package-lock.json
+node_modules/

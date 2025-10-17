@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EquateGPT</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" type="text/css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="chat-container">
+                <div class="chat-center">
+                    <h1 class="main-header">EquateGPT</h1>
+                    <p class="main-header-paragraph">Hi! I'm EquateGPT, a math-savvy assistant ready to help you solve equations, explore algebra, and tackle any math problem step by step.</p>
+                </div>
+                <div class="chat-messages" id="chat-messages"></div>
+            </div>
+            <div class="prompt-container">
+                <textarea class="prompt-textbox" resize="false"
+                          placeholder="Ask a math question (use '\( matheq \)' for math)"
+                          id="textarea-user-prompt"></textarea>
+                <div class="interactables">
+                    <div></div>
+                    <div>
+                        <button class="send"
+                                id="button-send-prompt">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load MathJax -->
+        <script>
+            window.MathJax = {
+                loader: {
+                    load: ['[tex]/noerrors', '[tex]/noundefined']
+                },
+                tex: {
+                    packages: { '[+]-full': ['noerrors', 'noundefined'] }
+                }
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+        <!-- Load Showdown -->
+        <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+        <script>
+            // Set up markdown converter here
+            const converter = new showdown.Converter({
+                tables: true,
+                strikethrough: true,
+                simplifiedAutoLink: true,
+                tasklists: true,
+                literalMidWordUnderscores: true,
+                backslashEscapesHTMLTags: true,
+            });
+        </script>
+
+        <!-- Load socket.io -->
+        <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+        <script>
+            const socket = io();
+
+            // Some handlers for debugging
+            socket.on("connect", () => console.log("Connected with ID:", socket.id));
+            socket.on("disconnect", () => console.log("Disconnected with ID:", socket.id));
+        </script>
+
+        <!-- Load actual script -->
+        <script src="script.js"></script>
+    </body>
+</html>
