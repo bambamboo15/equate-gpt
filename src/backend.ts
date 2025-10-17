@@ -106,8 +106,6 @@ export class UserSession {
               - \\( 123 + 456 \\) PROBABLY
               - \\( 718 - 462 \\) SHOULD
               - \\( 870912 \\times 15 \\) SHOULD
-
-            
         `),
         new AIMessage("Hi! I'm EquateGPT, a math-savvy assistant ready to help you solve equations, explore algebra, and tackle any math problem step by step.")
     ];
