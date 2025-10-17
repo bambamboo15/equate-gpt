@@ -13,4 +13,4 @@ EquateGPT is ChatGPT with the capability to do basic math via tooling. This proj
 This is pretty basic, as conversations are non-persistent and can be broken without the user knowing. This has also not been tested on multiple users at once. However, this project supports the case where the single user maintains a connection with the server, which is enough for a course project.
 
 ## Instructions to run
-Internet and the latest NodeJS release is required. There may be other dependencies. In the current directory, do `npm install` then `npm run start`. The website will then run in `localhost:3000`.
+Internet and the latest NodeJS release is required. There may be other dependencies. Additionally, you must have your own API key, and store it in a `.env` file in the root directory with content being `OPENAI_API_KEY=[your OpenAI API key]` (no brackets). In the current directory, do `npm install` then `npm run start`. The website will then run in `localhost:3000`.
